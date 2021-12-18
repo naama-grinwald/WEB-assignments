@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact Me {% endblock %}
+
+{% block tohen %}
+{% set page_name ='Contact' %}
+        {{ super() }}
+
+<div id="form-div">
+        <div>
+            <h1 id="contact-header">Contact Me</h1>
+        </div>
+        <br>
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" pattern="number" placeholder="Your phone number..">
+
+            <label for="message">Your Message</label>
+            <textarea type="text" id="message" name="message" rows="5"
+                placeholder="Anything you want to say.."></textarea>
+
+            <button onclick="Validation()">Submit</button>
+            <p id="demo"></p>
+            <p id="demo2"></p>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js.js"></script>
+</head>
+
+<body>
+    {% include 'header.html' %}
+    <hr>
+    {% block tohen %}
+        <body>
+        <div id="contact-info">
+            <h1 style="display: inline;">Naama Grinwald</h1>
+            <p>Email: naama.grinwald@gmail.com</p>
+            <p>Phone: 050-5917191</p>
+            <a href="https://www.linkedin.com/in/naama-grinwald-680a031a6/" class="fa fa-linkedin" target="_blank"></a>
+            <a href="https://www.facebook.com/naama.grinwald" class="fa fa-facebook" target="_blank"></a>
+            <a href="/static/CV-Naama%20Grinwald-File.pdf" target="_blank" class="fa fa-download"></a>
+        </div>
+        <hr>
+</body>
+
+    {% endblock %}
+</body>
+
+</html>

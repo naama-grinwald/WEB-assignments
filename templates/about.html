@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock %}
+
+{% block tohen %}
+{% set page_name ='About' %}
+        {{ super() }}
+       <div id="main">
+            <h1 id="head">Summary</h1>
+                <section id="education">
+                    <h3>Education</h3>
+                    <p class="period">2018-Today</p>
+                    <p>Industrial Engineering and Management Student, Ben Gurion University, Fourth year</p>
+                    <li>Specializing in information systems</li>
+                    <li>Mentoring students for SQL & Databases Course</li>
+                    <p class="period">2006-2012</p>
+                    <p>Full Matriculation, Maccabim Reut MOR High School</p>
+                    <li>Certificate in Physics and Art majors</li>
+                    <li>Awarded certificate of outstanding academic excellence</li>
+                </section>
+                <section id="army">
+                    <h3>Army Service</h3>
+                    <p class="period">2013-2017</p>
+                    <p>Air Force, Operation official and Planning Office in Helicopter Squadron</p>
+                    <li>Planning and executin g the unit's air and ground missions' program</li>
+                    <li>Partnership in decision making process as part of the executive staff</li>
+                    <li>Responsible for the operational competence and adjustment of the unit's
+                        members</li>
+                    <li>Handling the unit's operation room; real time management and troubleshooting</li>
+                    <li>Coordination and liaison between military factors, working with many people
+                        simultaneously</li>
+                    <li>Receiving a soldier excellence award, both in mandatory and permanent</li>
+                </section>
+        </div>
+{% endblock %}

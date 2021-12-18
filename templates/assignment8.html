@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Skills {% endblock %}
+
+{% block tohen %}
+{% set page_name ='Skills' %}
+        {{ super() }}
+    <div id="skills">
+            <h1 id="head">Skills</h1>
+    {% if user %}
+        <p id="head"> Those are {{ user.firstname | upper }} {{ user.lastname | upper }}'s Skills</p>
+           <h4>Programming Languages:</h4>
+    <ol>
+        {% for lang in languages %}
+            <li>{{ lang }}</li>
+        {% endfor %}
+    </ol>
+            <h4>Computer Skills:</h4>
+            <p>Power BI, Microsoft Word, Excel, PowerPoint, Outlook</p>
+            <h4>Languages:</h4>
+            <p>Hebrew - Native, English - Highly proficient</p>
+        </div>
+        {% else %}
+        <p id="head">This page is not connected to any CV</p>
+    {% endif %}
+
+        {% include 'text.html' %}
+    <hr>
+
+{% endblock %}
+
+
+
+

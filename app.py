@@ -1,29 +1,31 @@
-from flask import Flask, redirect, url_for
-
-# Make one usage of redirect() function and one usage of redirect() and url_for() functions.
+from flask import Flask, redirect, url_for, render_template
 
 app = Flask(__name__)
 
-
+@app.route('/home')
 @app.route('/')
 def home_page():
-    return 'This is Home Page!'
+    return render_template('home.html')
+
 
 @app.route('/about')
 def about_func():
-    return 'About me page!'
+    return render_template('about.html')
 
-@app.route('/hello')
-def hello_world():
-    return redirect('/home')
 
-@app.route('/home')
-def home_func():
-    return redirect(url_for('home_page'))
+@app.route('/contact')
+def contact_func():
+    return render_template('contact.html')
 
-@app.route('/catalog')
-def catalog_func():
-    return "welcome to catalog page"
+
+@app.route('/skills')
+@app.route('/assignment8')
+def assignment8_func():
+    return render_template('assignment8.html',
+                           languages=['SQL', 'R', 'Python', 'Java', 'VBA', 'HTML', 'CSS', 'JavaScript'],
+                           user={'firstname': 'Naama', 'lastname': 'Grinwald'}
+                            )
+
 
 if __name__ == '__main__':
     app.run(debug=True)

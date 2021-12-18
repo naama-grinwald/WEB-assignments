@@ -13,11 +13,6 @@ def about_func():
     return render_template('about.html')
 
 
-@app.route('/contact')
-def contact_func():
-    return render_template('contact.html')
-
-
 @app.route('/skills')
 @app.route('/assignment8')
 def assignment8_func():

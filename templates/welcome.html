@@ -1,0 +1,6 @@
+{% if session['username'] %}
+        <div id="user">
+            <h3 id="head">Welcome, {{ session['username'] }}!</h3>
+        </div>
+    <br>
+{% endif %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock %}
+
+{% block tohen %}
+{% set page_name ='Assignment 9' %}
+        {{ super() }}
+        {% if username %}
+            <div id="logout">
+            <form method="GET" action="/logout">
+                    <input type="submit" name="Log Out" value="Log Out">
+            </form>
+            </div>
+
+            <div id="search">
+            <h1 id="head">Search</h1>
+            <form method="GET" action="/assignment9">
+                Search for user: <input name="s_userkey" type="text">
+                <input  type="submit" name="search" value="Search">
+            </form>
+            {% if s_username and s_email %}
+                <h2 id="right">Your Search Results:</h2>
+                <p id="right">The user's name is: {{ s_username }}</p>
+                <p id="right">The user's email is: {{ s_email }}</p>
+            {% else %}
+                {% if profiles %}
+                    <h2 id="right">Users List:</h2>
+                    <ol>
+                        {% for key in profiles %}
+                            <li id="right"> {{ key }} : {{ profiles[key]['name'] }}, {{ profiles[key]['email'] }}</li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+                {% if nokey %}
+                    <h2 id="right">ERROR</h2>
+                    <p id="right">There is not a user <b>'{{ s_userkey }}'</b> in the list</p>
+                {% endif %}
+            {% endif %}
+            </div>
+
+        {% else %}
+            <div id="form-div">
+                <div>
+                    <h1 id="contact-header">Registration Form</h1>
+                </div>
+                <br>
+                <form action="/assignment9" method="POST">
+                    <label for="username">Name</label>
+                    <input type="text" id="name" name="username" placeholder="Your name.." required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+                    <label for="password">Password</label>
+                    <input type="text" id="password" name="password" placeholder="Choose password..">
+
+                    <input  type="submit" value="Submit">
+                </form>
+            </div>
+        {% endif %}
+{% endblock %}

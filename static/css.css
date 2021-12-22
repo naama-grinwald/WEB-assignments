@@ -77,7 +77,7 @@ textarea, input[type=text], input[type=email] {
     box-sizing: border-box;
   }
 
-  button {
+  button, input[type=submit] {
     width: 100%;
     background-color: #c7ce69;
     color: white;
@@ -122,9 +122,19 @@ textarea, input[type=text], input[type=email] {
     text-decoration: underline;
   }
 
-  #welcome{
+  #welcome, #search{
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
     text-align: center;
   }
+
+  #user{
+          background-color: #f2f2f2;
+          text-align: center;
+          padding: 5px;
+  }
+
+    #right{
+        text-align: left;
+    }

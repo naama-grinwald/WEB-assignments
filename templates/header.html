@@ -1,6 +1,10 @@
 <header>
-    <a href="/">Home</a> | <a href="/about">About</a> | <a href="/skills">Skills</a>
-    <!--| <a href="/contact">Contact Me</a>-->
+    <a href="/">Home</a> | <a href="/about">About</a> | <a href="/skills">Skills</a> |
+    {% if session.user_inside %}
+            <a href="/assignment9">Search</a>
+        {% else %}
+            <a href="/assignment9">Register</a>
+        {% endif %}
     <hr>
 </header>
 

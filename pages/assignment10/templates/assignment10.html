@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Assignment10 {% endblock %}
+
+{% block tohen %}
+{% set page_name ='Assignment10' %}
+        {{ super() }}
+
+        <h1>Insert User</h1>
+        <form action="/insert_user" method="post">
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Insert User">
+        </form>
+
+        <hr>
+
+        <h1>Update User</h1>
+        <form action="/update_user" method="post">
+        Choose User id to Update: <input type="number" name="id" placeholder="User id">
+        New values:
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Update User">
+        </form>
+
+        <hr>
+
+        <h1>Delete Users</h1>
+                <form action="/delete_user" method="post">
+                    Choose User id to Delete: <input type="number" name="id" placeholder="User id">
+                    <input type="submit" value="Delete">
+                </form>
+        <hr>
+
+        <h1>Users List</h1>
+                 {% for message in get_flashed_messages() %}
+                    <h4 class="alert-change">{{ message }}</h4>
+                 {% endfor %}
+            <ul>
+            {% for user in users %}
+                <b>{{ user.id }} - </b> {{ user.name }}, Email: {{ user.email }} <br>
+            {% endfor %}
+            </ul>
+{% endblock %}

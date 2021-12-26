@@ -67,7 +67,7 @@ body{
     src: url(Rubik/Rubik-Italic-VariableFont_wght.ttf);
 }
 
-textarea, input[type=text], input[type=email] {
+textarea, input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -137,4 +137,9 @@ textarea, input[type=text], input[type=email] {
 
     #right{
         text-align: left;
+    }
+
+    .alert-change{
+        color: red;
+        text-align: center;
     }

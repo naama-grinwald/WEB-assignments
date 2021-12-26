@@ -1,7 +1,12 @@
 from flask import Flask, redirect, url_for, render_template, request, session
 
 app = Flask(__name__)
-app.secret_key = '123'
+app.secret_key = '1234'
+
+
+from pages.assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
 
 @app.route('/home')
 @app.route('/')
@@ -47,6 +52,7 @@ def assignment9_func():
             return render_template('assignment9.html', username=session['username'], email=session['email'],
                                    password=session['password'], profiles=profiles)
 
+        #return render_template('assignment9.html')
         return render_template('assignment9.html', username=session['username'], email=session['email'], password=session['password'])
 
     if request.method == 'POST':

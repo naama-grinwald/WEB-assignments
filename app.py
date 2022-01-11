@@ -1,4 +1,9 @@
-from flask import Flask, redirect, url_for, render_template, request, session
+from random import random
+
+from flask import Flask, redirect, url_for, render_template, request, session, jsonify
+import requests
+
+from pages.assignment10.interact_with_DB import interact_db
 
 app = Flask(__name__)
 app.secret_key = '1234'
@@ -77,6 +82,36 @@ def logout_func():
 
     return render_template('assignment9.html', username=session['username'], email=session['email'],
                            password=session['password'])
+
+
+# assignment11
+@app.route('/assignment11/users')
+def assignment11_users():
+    query = "select * from users"
+    query_result = interact_db(query=query, query_type='fetch')
+    response = jsonify(query_result)
+    return response
+
+
+@app.route('/assignment11/outer_source', methods=['GET', 'POST'])
+def assignment11_outer_source():
+    return render_template('assignment11.html')
+
+
+@app.route('/get_user', methods=['POST'])
+def assignment11_get_user():
+    id = request.form['id']
+    return render_template('assignment11.html', id=id)
+
+
+@app.route('/req_backend')
+def req_backend_func():
+    user=0
+    if "user" in request.args and request.args['user']!='':
+        user = request.args['user']
+    res=requests.get(f'https://reqres.in/api/users/{user}')
+    res = res.json()
+    return render_template('assignment11.html', user=res)
 
 
 if __name__ == '__main__':

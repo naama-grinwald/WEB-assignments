@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Outer Source Users {% endblock %}
+
+{% block tohen %}
+{% set page_name ='Assignment 11' %}
+    {{ super() }}
+    <form action="/req_backend">
+        <h1>Req Backend</h1>
+        Choose User id to Display: <input type="number" name="user" placeholder="User id">
+        <input type="submit" value="Display">
+    </form>
+
+    {% if user %}
+            <img src="{{ user.data.avatar }}" alt="Profile Picture"><br>
+            {{user.data.first_name}} {{user.data.last_name}}<br>
+            <a href="mailto: {{user.data.email}}">Send Email</a>
+            <hr>
+    {% endif %}
+
+    <hr>
+
+    <form action="/get_user" method="post">
+        <h1>Req Frontend</h1>
+        Choose User id to Display: <input type="number" name="id" placeholder="User id">
+        <input type="submit" value="Display">
+    </form>
+
+    {% if id %}
+        <body onload="getUsers({{ id }})">
+        </body>
+        <script src="/static/fetch_example.js"></script>
+    {% endif %}
+
+{% endblock %}
